@@ -16,8 +16,6 @@ import java.util.ArrayList;
 import dataservice.promotionDataService.PromotionDataService;
 import PO.PromotionPO;
 
-
-
 public class PromotionData extends UnicastRemoteObject implements PromotionDataService,Serializable{
 	
 	PromotionPO po;
@@ -25,6 +23,12 @@ public class PromotionData extends UnicastRemoteObject implements PromotionDataS
 	String path;
 	int ID;
 	
+	public static void main(String[] args) throws RemoteException {
+		PromotionData p = new PromotionData();
+		ArrayList<PromotionPO> l = p.show();
+		for(PromotionPO pp:l)
+			System.out.println(pp.getID()+pp.getType()+pp.getTotalPrice());
+	}
 	public PromotionData() throws RemoteException{
 		super();
 		// TODO Auto-generated constructor stub
